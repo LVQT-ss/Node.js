@@ -1,7 +1,6 @@
 
 require('dotenv').config();
 const express = require('express');  //common js 
-const path = require('path');
 const configViewEnngine = require('./config/viewEngine');
 const webRoutes = require('./routes/web');
 

@@ -1,16 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const { getHomepage, getABC, getFullname } = require('../controllers/homeController')
 // Route declarations
-router.get('/', (req, res) => {
-    res.send('Hello World! this is quoc thinh mới tải nodemon');
-});
+//router.Method('/route',handler)
 
-router.get('/abc', (req, res) => {
-    res.render('sample.ejs');
-});
+router.get('/', getHomepage);
 
-router.get('/2', (req, res) => {
-    res.send('<h1>thinh le viet quoc</h1>');
-});
+router.get('/abc', getABC);
+
+router.get('/fullname', getFullname);
 
 module.exports = router;
