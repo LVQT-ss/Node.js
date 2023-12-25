@@ -9,12 +9,16 @@ const app = express();
 const port = process.env.PORT || 3000;
 const hostname = process.env.hostname;
 
+//config temple engine 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+//config static file 
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Route declarations
 app.get('/', (req, res) => {
-    res.send('Hello World! this is quoc thinh');
+    res.send('Hello World! this is quoc thinh mới tải nodemon');
 });
 
 app.get('/abc', (req, res) => {
