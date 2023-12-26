@@ -10,6 +10,10 @@ const app = express();
 const port = process.env.PORT || 8888;
 const hostname = process.env.hostname;
 
+//config request.body
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+
 //config temple engine 
 configViewEnngine(app);
 // khai báo routes
