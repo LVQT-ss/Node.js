@@ -10,7 +10,10 @@ const getABC = (req, res) => {
 const getFullname = (req, res) => {
     res.send('<h1>thinh le viet quoc</h1>');
 };
-const postCreateUser = (req, res) => {
+const getCreatePage = (req, res) => {
+    res.render('create.ejs');
+}
+const postCreateUser = async (req, res) => {
 
 
 
@@ -22,16 +25,28 @@ const postCreateUser = (req, res) => {
 
     console.log('>> request body ', email, name, city)
 
-    connection.query(
-        `INSERT INTO
-         Users(email, name, city)
-           VALUES( ?, ?, ?)`,
-        [email, name, city],
-        function (err, results) {
-            console.log(results);
-            res.send('create user success')
-        }
-    );
+    // connection.query(
+    //     `INSERT INTO
+    //      Users(email, name, city)
+    //        VALUES( ?, ?, ?)`,
+    //     [email, name, city],
+    //     function (err, results) {
+    //         console.log(results);
+    //         res.send('create user success')
+    //     }
+    // );
+    let [results, fields] = await connection.query(
+        `INSERT INTO Users(email, name, city) VALUES( ?, ?, ?)`, [email, name, city]);
+    console.log('check result ', results)
+    res.send('create user success')
+    // connection.query(
+    //     'select * from Users u',
+    //     function(err,results,fields){
+    //         console.log("result",results);
+    //     })
+
+    // const [results, fields] = await connection.query('select * from Users u');
+
 
     // cách viết ngắn hơn
     // let {email,name,city} = req.body;
@@ -44,5 +59,6 @@ module.exports = {
     getHomepage,
     getABC,
     getFullname,
-    postCreateUser
+    postCreateUser,
+    getCreatePage
 }
