@@ -7,21 +7,14 @@ const connection = require('./config/database')
 
 //import express 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8888;
 const hostname = process.env.hostname;
 
 //config temple engine 
 configViewEnngine(app);
 // khai báo routes
-app.use('/test', webRoutes);
+app.use(webRoutes);
 //test  connection 
-
-
-connection.query('SELECT * FROM Users u ;',
-    function (error, results, fields) {
-        console.log('result ', results);
-    });
-
 
 app.listen(port, hostname, () => {
     console.log(`Example app listening on port ${port}`);
