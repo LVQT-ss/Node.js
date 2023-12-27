@@ -28,41 +28,65 @@
 
     </div>
     <div class="table-container">
-        <%= JSON.stringify(listUsers) %>
-            <div class="title">List User</div>
+        <div class="title">List User</div>
 
 
-            <table class="w3-table-all w3-hoverable">
-                <thead>
-                    <tr class="w3-light-grey">
-                        <th>id</th>
-                        <th>Email</th>
-                        <th>Name</th>
-                        <th>city</th>
-                        <th>ACtion</th>
-                    </tr>
-                </thead>
+        <table class="w3-table-all w3-hoverable">
+            <thead>
+                <tr class="w3-light-grey">
+                    <th>id</th>
+                    <th>Email</th>
+                    <th>Name</th>
+                    <th>city</th>
+                    <th>ACtion</th>
+                </tr>
+            </thead>
+
+
+            <!-- <% for (let i=0; i < listUsers.length; i++) { %>
                 <tr>
-                    <td>Jill</td>
-                    <td>Smith</td>
-                    <td>50</td>
-                    <td>100</td>
+                    <td>
+                        <%= listUsers[i].id %>
+                    </td>
+                    <td>
+                        <%= listUsers[i].email %>
+                    </td>
+                    <td>
+                        <%= listUsers[i].name %>
+                    </td>
+                    <td>
+                        <%= listUsers[i].city %>
+                    </td>
                     <td>
                         <button>Edit</button>
                         <button>Delete</button>
                     </td>
                 </tr>
+                <% } %> -->
+
+
+            <% listUsers.forEach(function(user) { %>
                 <tr>
-                    <td>Eve</td>
-                    <td>Jackson</td>
-                    <td>94</td>
+                    <td>
+                        <%= user.id %>
+                    </td>
+                    <td>
+                        <%= user.email %>
+                    </td>
+                    <td>
+                        <%= user.name %>
+                    </td>
+                    <td>
+                        <%= user.city %>
+                    </td>
+                    <td>
+                        <button>Edit</button>
+                        <button>Delete</button>
+                    </td>
                 </tr>
-                <tr>
-                    <td>Adam</td>
-                    <td>Johnson</td>
-                    <td>67</td>
-                </tr>
-            </table>
+                <% }); %>
+
+        </table>
     </div>
 
 </body>
