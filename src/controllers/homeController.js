@@ -16,10 +16,15 @@ const getFullname = (req, res) => {
 const getCreatePage = (req, res) => {
     res.render('create.ejs');
 }
-const getUpdatePage = (req, res) => {
+const getUpdatePage = async (req, res) => {
     const userID = req.params.id;
-    console.log('req . parem ', req.params, userID)
-    res.render('edit.ejs');
+    let [results, fields] = await connection.query('select * from Users where id = ?', [userID]);
+
+    console.log('check result ', results)
+
+    let user = results && results.length > 0 ? results[0] : {};
+
+    res.render('edit.ejs', { userEdit: user }); // x <- y 
 }
 const postCreateUser = async (req, res) => {
 
