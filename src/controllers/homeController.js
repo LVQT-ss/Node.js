@@ -16,6 +16,9 @@ const getFullname = (req, res) => {
 const getCreatePage = (req, res) => {
     res.render('create.ejs');
 }
+const getUpdatePage = (req, res) => {
+    res.render('edit.ejs');
+}
 const postCreateUser = async (req, res) => {
 
 
@@ -63,5 +66,6 @@ module.exports = {
     getABC,
     getFullname,
     postCreateUser,
-    getCreatePage
+    getCreatePage,
+    getUpdatePage
 }
