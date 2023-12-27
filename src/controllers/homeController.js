@@ -24,15 +24,9 @@ const getUpdatePage = async (req, res) => {
     res.render('edit.ejs', { userEdit: user }); // x <- y 
 }
 const postCreateUser = async (req, res) => {
-
-
-
     let email = req.body.Email;
     let name = req.body.myName;
     let city = req.body.mycity;
-
-
-
     console.log('>> request body ', email, name, city)
 
     // connection.query(
@@ -78,7 +72,15 @@ const postUpdateUser = async (req, res) => {
 
     res.redirect('/')
 }
+const postDeleteUser = async (req, res) => {
+    const userID = req.params.id;
 
+    let user = await getUsersbyId(userID);
+    res.render('delete.ejs', { userEdit: user })
+}
+const postHandleRemoveUser = (req, res) => {
+    res.send('deleted')
+}
 module.exports = {
     getHomepage,
     getABC,
@@ -87,5 +89,8 @@ module.exports = {
     getCreatePage,
     getUpdatePage,
     postUpdateUser,
-    updateUserbyId
+    updateUserbyId,
+    postDeleteUser,
+    postHandleRemoveUser
+
 }
