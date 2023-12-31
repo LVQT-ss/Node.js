@@ -1,12 +1,14 @@
 // get the client
-import mysql from 'mysql2';
-
+import mysql from 'mysql2/promise';
 // create the connection to the database
-const connection = mysql.createConnection({
+console.log('create connection pool');
+const pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
     database: 'nodejsbasic'
 });
+
+
 
 // // simple query
 // connection.query(
@@ -20,4 +22,4 @@ const connection = mysql.createConnection({
 //     }
 // );
 
-export default connection;
+export default pool;
