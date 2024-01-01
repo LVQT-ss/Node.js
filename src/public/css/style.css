@@ -55,3 +55,7 @@ body {
     margin-top: 15px;
     cursor: pointer;
 }
+
+.uploadFileContainer {
+    padding: 15px;
+}
