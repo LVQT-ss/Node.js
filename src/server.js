@@ -1,6 +1,7 @@
 const express = require('express');
 const configViewEngine = require('./configs/viewEngine');
 import initWebRoute from './routes/web';
+import initAPIRoute from './routes/api';
 
 // import connection from './configs/connectDB';
 
@@ -15,8 +16,10 @@ app.use(express.json());
 //set up view engine 
 
 configViewEngine(app);
-initWebRoute(app)
-
+// init web route
+initWebRoute(app);
+// init api route 
+initAPIRoute(app);
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
